@@ -165,7 +165,7 @@ public class Board
    * Checks the provided values fall within the range of the gameboard's dimension
    * and that the tile has not been previously matched
    * 
-   * @param rpw the row value of Tile
+   * @param row the row value of Tile
    * @param col the column value of Tile
    * @return true if row and col fall on the board and the row,col tile is unmatched, false otherwise
    */
@@ -173,8 +173,12 @@ public class Board
   {
 
     /* your code here */
-
-    return true;
+    if (row < gameboard.length && col < gameboard[0].length){
+      if (gameboard[row][col].matched() == false ){
+        return true;
+      }
+    }
+    return false;
   }
 
 }

@@ -123,6 +123,7 @@ public class Board
   {
    
     /* your code here */
+    gameboard[row][column].show();
   }  
 
   /** 
@@ -149,11 +150,14 @@ public class Board
      /* your code here */
     if (gameboard[row1][col1].equals(gameboard[row2][col2])){
       msg = "Matched.";
+      gameboard[row1][col1].foundMatch();
+      gameboard[row2][col2].foundMatch();
     } else {
       msg = "Try again.";
+      gameboard[row1][col1].hide();
+      gameboard[row2][col2].hide();
     }
-    gameboard[row1][col1].foundMatch();
-    gameboard[row2][col2].foundMatch();
+    
      return msg;
   }
 

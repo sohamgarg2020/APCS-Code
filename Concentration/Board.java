@@ -17,7 +17,7 @@ public class Board
                                         "monkey", "monkey",
                                         "turtle", "turtle"}; 
   private Tile[][] gameboard = new Tile[3][4];
-  private static String[] copyOfTiles = tileValues;
+  private static String[] copyOfTiles = tileValues; // Used only because I need a way to change values of tileValues to randomize tile order.
 
   /**  
    * Constructor for the game. Creates the 2D gameboard
@@ -30,6 +30,10 @@ public class Board
     /* your code here */
 
     /*
+
+    This code was for testing purposes. This does not randomize the order of the tiles.
+
+
     int numRows = gameboard.length;
     int numColumns = gameboard[0].length;
     int tileValuesCounter = 0;
@@ -167,11 +171,11 @@ public class Board
 
      /* your code here */
     if (gameboard[row1][col1].equals(gameboard[row2][col2])){
-      msg = "Matched.";
+      msg = "The two tiles matched.";
       gameboard[row1][col1].foundMatch();
       gameboard[row2][col2].foundMatch();
     } else {
-      msg = "It was not a match. Try again.";
+      msg = "The two tiles did not match. Please try again.";
       gameboard[row1][col1].hide();
       gameboard[row2][col2].hide();
     }

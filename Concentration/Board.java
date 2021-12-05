@@ -27,8 +27,8 @@ public class Board
   {
    
     /* your code here */
-    int numRows = 3;
-    int numColumns = 4;
+    int numRows = gameboard.length;
+    int numColumns = gameboard[0].length;
     int tileValuesCounter = 0;
     for (int i = 0; i < numRows; i++){
       for (int j = 0; j < numColumns; j++){
@@ -60,8 +60,8 @@ public class Board
     /* your code here */
 
     String res = "";
-    int numRows = 3;
-    int numColumns = 4;
+    int numRows = gameboard.length;
+    int numColumns = gameboard[0].length;
     int tileValuesCounter = 0;
     for (int i = 0; i < numRows; i++){
       for (int j = 0; j < numColumns; j++){
@@ -93,8 +93,8 @@ public class Board
   {
 
     /* your code  here */
-    int numRows = 3;
-    int numColumns = 4;
+    int numRows = gameboard.length;
+    int numColumns = gameboard[0].length;
     int tileValuesCounter = 0;
     for (int i = 0; i < numRows; i++){
       for (int j = 0; j < numColumns; j++){
@@ -147,7 +147,13 @@ public class Board
     String msg = "";
 
      /* your code here */
-    
+    if (gameboard[row1][col1].equals(gameboard[row2][col2])){
+      msg = "Matched.";
+    } else {
+      msg = "Try again.";
+    }
+    gameboard[row1][col1].foundMatch();
+    gameboard[row2][col2].foundMatch();
      return msg;
   }
 

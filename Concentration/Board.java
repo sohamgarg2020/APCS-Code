@@ -93,6 +93,17 @@ public class Board
   {
 
     /* your code  here */
+    int numRows = 3;
+    int numColumns = 4;
+    int tileValuesCounter = 0;
+    for (int i = 0; i < numRows; i++){
+      for (int j = 0; j < numColumns; j++){
+        if (gameboard[i][j].matched() == false){
+          return false;
+        }
+        tileValuesCounter++;
+      }
+    }
     
     return true;
   }

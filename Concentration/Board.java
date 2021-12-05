@@ -17,6 +17,7 @@ public class Board
                                         "monkey", "monkey",
                                         "turtle", "turtle"}; 
   private Tile[][] gameboard = new Tile[3][4];
+  private static String[] copyOfTiles = tileValues;
 
   /**  
    * Constructor for the game. Creates the 2D gameboard
@@ -25,8 +26,10 @@ public class Board
    */
   public Board()
   {
-   
+    int num;
     /* your code here */
+
+    /*
     int numRows = gameboard.length;
     int numColumns = gameboard[0].length;
     int tileValuesCounter = 0;
@@ -34,6 +37,21 @@ public class Board
       for (int j = 0; j < numColumns; j++){
         gameboard[i][j] = new Tile(tileValues[tileValuesCounter]);
         tileValuesCounter++;
+      }
+    }
+    */
+    for (int i = 0; i < gameboard.length; i++){
+      for (int j = 0; j < gameboard[0].length; j++){
+        while (true){
+          num = (int)Math.floor(Math.random()*copyOfTiles.length);
+          if (copyOfTiles[num] == null){
+            continue;
+          } else {
+            break;
+          }
+        }
+        gameboard[i][j] = new Tile(copyOfTiles[num]);
+        copyOfTiles[num] = null;
       }
     }
     /*
@@ -153,7 +171,7 @@ public class Board
       gameboard[row1][col1].foundMatch();
       gameboard[row2][col2].foundMatch();
     } else {
-      msg = "Try again.";
+      msg = "It was not a match. Try again.";
       gameboard[row1][col1].hide();
       gameboard[row2][col2].hide();
     }

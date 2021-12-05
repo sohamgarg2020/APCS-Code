@@ -26,8 +26,23 @@ public class Board
   public Board()
   {
    
-    /* your code here */ 
-
+    /* your code here */
+    int numRows = 3;
+    int numColumns = 4;
+    int tileValuesCounter = 0;
+    for (int i = 0; i < numRows; i++){
+      for (int j = 0; j < numColumns; j++){
+        gameboard[i][j] = new Tile(tileValues[tileValuesCounter]);
+        tileValuesCounter++;
+      }
+    }
+    /*
+    used for testing only
+    System.out.println(java.util.Arrays.toString(gameboard[0]));
+    System.out.println(java.util.Arrays.toString(gameboard[1]));
+    System.out.println(java.util.Arrays.toString(gameboard[2]));
+    System.out.println(java.util.Arrays.toString(gameboard[3]));
+    */
   }
 
  /** 
@@ -43,8 +58,27 @@ public class Board
   {
  
     /* your code here */
+
+    String res = "";
+    int numRows = 3;
+    int numColumns = 4;
+    int tileValuesCounter = 0;
+    for (int i = 0; i < numRows; i++){
+      for (int j = 0; j < numColumns; j++){
+        if (gameboard[i][j].isShowingValue()){
+          res += gameboard[i][j].getValue();
+          res += "\t";
+        
+        } else {
+          res += gameboard[i][j].getHidden();
+          res += "\t";
+        }
+        tileValuesCounter++;
+      }
+      res += "\n";
+    }
  
-    return "";
+    return res;
   }
 
   /** 

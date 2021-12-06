@@ -202,5 +202,12 @@ public class Board
     }
     return false;
   }
+  public int getRows(){
+    return gameboard.length;
+  }
+
+  public int getCols(){
+    return gameboard[0].length;
+  }
 
 }

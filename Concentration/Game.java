@@ -22,18 +22,22 @@ public class Game
   private int row1, col1;
   private int row2, col2;
   private int attempts = 0;
+  
 
   public void play()
   {
     // instructions
+    board = new Board();
     System.out.println("Welcome!");
     System.out.println("Select the tile locations you want to match,");
     System.out.println("or enter any non-integer character to quit.");
     System.out.println("(You will need to know 2D arrays to play!)");
+    System.out.println("The rows are numbered 0 to " + Integer.toString(board.getRows()-1) + " and the columns are labeled from 0 to " + Integer.toString(board.getCols()-1));
+    System.out.println("An example turn would be \"0 0\". Separate the two numbers by a space.");
     System.out.println("\nPress Enter to continue...");
     in.nextLine();
 
-    board = new Board();
+    
     // play until all tiles are matched
     while (!board.allTilesMatch())
     {

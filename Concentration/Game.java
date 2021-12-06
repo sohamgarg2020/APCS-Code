@@ -21,6 +21,7 @@ public class Game
   private Board board;
   private int row1, col1;
   private int row2, col2;
+  private int attempts = 0;
 
   public void play()
   {
@@ -75,6 +76,7 @@ public class Game
 
       // determine if tiles match
       String matched = board.checkForMatch(row1, col1, row2, col2);
+      attempts++;
       System.out.println(matched);
 
       // wait 2 seconds to start the next turn
@@ -83,6 +85,7 @@ public class Game
 
     displayBoard();
     System.out.println("Game Over!");
+    System.out.println("You took " + attempts + " attempts to finish the game!");
   }
 
   /**
@@ -161,6 +164,7 @@ public class Game
   private void quitGame() 
   {
     System.out.println("Quit game!");
+    System.out.println("You quit after " + attempts + " attempts!");
     System.exit(0);
   }
 }

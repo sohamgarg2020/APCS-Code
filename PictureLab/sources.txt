@@ -1,0 +1,12 @@
+./src/FileChooser.java
+./src/PictureTester.java
+./src/SimplePicture.java
+./src/PictureExplorer.java
+./src/PictureFrame.java
+./src/Picture.java
+./src/IntArrayWorkerTester.java
+./src/ColorChooser.java
+./src/Pixel.java
+./src/IntArrayWorker.java
+./src/DigitalPicture.java
+./src/ImageDisplay.java

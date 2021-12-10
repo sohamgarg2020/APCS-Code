@@ -24,31 +24,31 @@ public class PictureTester {
      System.out.println("here!");
 		// testZeroBlue();
      
-		// testKeepOnlyBlue(); done
-		// testKeepOnlyRed(); done
-		// testKeepOnlyGreen(); done
-		// testNegate(); done
-		// testGrayscale(); done
-		// testEdgeDetection(); <=
-		// testFaceDetect(); <=
-		// testFixUnderwater(); <=
-		// testMirrorVertical(); <=
-		// testMirrorTemple(); <=
-		// testMirrorArms(); <
-		// testMirrorGull(); <=
-		// testMirrorDiagonal(); <=
-		// testCollage(); <=
-		// testCopy(); <=
+		// testKeepOnlyBlue(); //done
+		// testKeepOnlyRed(); //done
+		// testKeepOnlyGreen(); //done
+		// testNegate(); //done
+		// testGrayscale(); //done
+		// testEdgeDetection(); //<=
+		// testFaceDetect(); //<=
+		// testFixUnderwater(); //<=
+		// testMirrorVertical(); //<=
+		// testMirrorTemple(); //<=
+		// testMirrorArms(); //<=
+		// testMirrorGull(); //<=
+		// testMirrorDiagonal(); //<=
+		// testCollage(); //<=
+		// testCopy(); //<=
 
-		// testChromakey(); <=
-		// testEncodeAndDecode(); // use png, gif or bmp because of compression <=
-		testGetCountRedOverValue(250);
-		// testSetRedToHalfValueInTopHalf(); <=
-		// testClearBlueOverValue(200); <=
-		// Color avgColor = testGetAverageForColumn(pic, col);// specified column <=
-		// testDiagonal(); <=
-		// testQuads(); <=
-		// testPixelate(); <=
+		// testChromakey(); //<=
+		// testEncodeAndDecode(); // use png, gif or bmp because of compression //<=
+		// testGetCountRedOverValue(250); //done
+		// testSetRedToHalfValueInTopHalf(); //done
+		// testClearBlueOverValue(200); //done
+		// Color avgColor = testGetAverageForColumn(pic, col);// specified column //<=
+		// testDiagonal(); //<=
+		// testQuads(); //<=
+		// testPixelate(); //<=
 	}
 
 	private static void testPixelate() {
@@ -262,13 +262,37 @@ public class PictureTester {
 	// so for this one, any pixels that have blue over a certain value are set
 	// to no blue at all. Or for a different effect, have those pixels set to black.
 	private static void testClearBlueOverValue(int i) {
+		Picture beach = new Picture("images/beach.jpg");
+		if (i > 255 | i < 0) System.out.println("Give a number between 0 and 255, inclusive");
+		else {
+			Pixel[][] pixels = beach.getPixels2D();
+			for (Pixel[] rowArray : pixels){
+				for (Pixel p : rowArray){
+					if (p.getBlue() > i){
+						p.setBlue(0);
+						p.setRed(0);
+						p.setGreen(0);
+					}
+				}
+			}
+			beach.explore();
+		}
 
 	}
 
 	// goes to each pixel in the top half and cuts the red component in half
 	// So, bottom half of pic should look normal
 	private static void testSetRedToHalfValueInTopHalf() {
-
+		Picture beach = new Picture("images/beach.jpg");
+		beach.explore();
+		Pixel[][] pixels = beach.getPixels2D(); 
+		int height = beach.getHeight()/2;
+		for (int i = 0; i < height; i++){
+			for (int x = 0; x < beach.getWidth(); x++){
+				pixels[i][x].setRed(pixels[i][x].getRed()/2);
+			}
+		}
+		beach.explore();
 	}
 
 	// displays the number of pixels in the pic that have a red component

@@ -204,6 +204,17 @@ public class Picture extends SimplePicture
 		// Big hint, the Pixel class has a method called colorDistance(Color) which
 		// returns the distance the input Color is from this Pixel's Color
 
+		for (int i = 0; i < pixels.length; i++){
+			for (int j = 0; j < pixels[i].length - 1; j++){
+			  if (pixels[i][j].colorDistance(pixels[i][j+1].getColor()) > edgeDist){
+				pixels[i][j].setColor(Color.BLACK);
+			  }
+			  else{
+				pixels[i][j].setColor(Color.WHITE);
+			  }
+			}
+		  }
+
 	}
 
 

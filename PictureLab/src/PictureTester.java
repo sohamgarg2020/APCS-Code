@@ -29,7 +29,7 @@ public class PictureTester {
 		// testKeepOnlyGreen(); //done
 		// testNegate(); //done
 		// testGrayscale(); //done
-		// testEdgeDetection(); //<=
+		testEdgeDetection(); //<=
 		// testFaceDetect(); //<=
 		// testFixUnderwater(); //<=
 		// testMirrorVertical(); //<=
@@ -161,7 +161,7 @@ public class PictureTester {
 	 * used often, we can write these algorithms in this class.
 	 */
 	private static void testNegate() {
-		Picture swan = new Picture("images/swan.jpg");
+		Picture swan = new Picture("images/house.jpg");
 		// write this in Picture class
 		swan.explore();
 		swan.negate();
@@ -174,7 +174,7 @@ public class PictureTester {
 	 * to the Picture class.
 	 */
 	private static void testGrayscale() {
-		Picture swan = new Picture("images/swan.jpg");
+		Picture swan = new Picture("images/face.jpg");
 		// write this method in Picture class
 		swan.explore();
 		swan.grayScale();
@@ -191,7 +191,7 @@ public class PictureTester {
 		swan.explore();
 		swan.edgeDetection(10);// bigger number means fewer edges
 		swan.explore();
-		swan.write("swan outline.jpg");// writes the new picture to a new file
+		swan.write("images/swan.jpg");// writes the new picture to a new file
 	}
 
 	/** Method to test mirrorVertical */

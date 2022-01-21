@@ -1,15 +1,21 @@
-
 public class Card implements Comparable<Card>{
 	// need some instance variables
- 
+  private int suit;
+  private int value;
  /** Must have this constructor.  You can add others*/
 	public Card(int suit, int value){
-
+    this.suit = suit;
+    this.value = value;
 	}
 	
   // add getters
+  public int getSuit() {
+    return this.suit;
+  }
 
-
+  public int getValue() {
+    return this.value;
+  }
 
 	@Override
 	/** This method satisfies the Comparable interface which determines
@@ -19,7 +25,7 @@ public class Card implements Comparable<Card>{
 	 *           if this Card is larger than c, a positive int is returned
 	 *           if this Card is equal to c, zero is returned	*/
 	public int compareTo(Card c){
-    int answer = 0;
+    int answer = this.value - c.value;
     
     return answer;
 	}
@@ -31,7 +37,27 @@ public class Card implements Comparable<Card>{
 	@Override
 	public String toString(){
 		String s = "";
-		
+    if (value == 11) {
+      s += "Jack";
+    } else if (value == 12) {
+      s += "Queen";
+    } else if (value == 13) {
+      s += "King";
+    } else if (value == 14) {
+      s += "Ace";
+    } else {
+      s += value;
+    }
+    s += " of ";
+    if (suit == 0) {
+      s += "Hearts";
+    } else if (suit == 1) {
+      s += "Diamonds";
+    } else if (suit == 2) {
+      s += "Clubs";
+    } else if (suit == 3) {
+      s += "Spades";
+    }
 		return s;
 	}
 }

@@ -1,7 +1,6 @@
-./src/App.java
-./src/Player.java
-./src/WarGame.java
 ./src/Card.java
-./src/Pile.java
+./src/Player.java
 ./src/Deck.java
-
+./src/App.java
+./src/WarGame.java
+./src/Pile.java
